@@ -47,6 +47,11 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Use guard for automated continous test running during development.  See
+  # https://www.railstutorial.org/book/static_pages#sec-guard
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
 group :test do

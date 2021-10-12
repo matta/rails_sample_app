@@ -39,6 +39,8 @@ group :development, :test do
   # In Ruby 3 rexml became a bundled gem and must be declared explicitly:
   # https://stackoverflow.com/questions/65479863/rails-6-1-ruby-3-0-0-tests-error-as-they-cannot-load-rexml
   gem 'rexml', '~> 3.2', '>= 3.2.4'
+
+  gem 'rails-controller-testing'
 end
 
 group :development do

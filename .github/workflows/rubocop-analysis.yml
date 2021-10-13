@@ -22,8 +22,8 @@ jobs:
 
     # If running on a self-hosted runner, check it meets the requirements
     # listed at https://github.com/ruby/setup-ruby#using-self-hosted-runners
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+    - name: Setup Ruby, JRuby and TruffleRuby
+      uses: ruby/setup-ruby@v1.82.0
       # The ruby version is picked up from the .ruby-version file in the
       # project itself.
 

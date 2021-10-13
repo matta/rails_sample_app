@@ -10,6 +10,9 @@ class User < ApplicationRecord
             # https://stackoverflow.com/questions/7948501/case-insensitive-unique-index-in-rails-activerecord/10660412
             uniqueness: true
 
+  has_secure_password
+  validates :password, presence: true, length: { minimum: 6 }
+
   before_validation :downcase_email
   def downcase_email
     self.email = email.downcase if email

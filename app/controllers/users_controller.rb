@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_action :require_login
+  skip_before_action :require_login, only: [:new, :create, :show]
+
+  before_action :require_correct_user
+  skip_before_action :require_correct_user, only: [:new, :create, :show]
+
   def new
     @user = User.new
   end
@@ -42,5 +48,19 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
+  end
+
+  def require_login
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
+  def require_correct_user
+    @user = User.find(params[:id])
+    unless current_user?(@user)
+      redirect_to(root_url)
+    end
   end
 end

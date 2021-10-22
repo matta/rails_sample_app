@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create, :show]
 
   before_action :require_correct_user
-  skip_before_action :require_correct_user, only: [:new, :create, :show]
+  skip_before_action :require_correct_user, only: [:new, :create, :show, :index]
 
   def new
     @user = User.new
@@ -41,6 +41,10 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def index
+    @users = User.all
   end
 
   private

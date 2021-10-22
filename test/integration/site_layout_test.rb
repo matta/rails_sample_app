@@ -9,6 +9,20 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", contact_path
   end
 
+  test "non logged in users do not see users link" do
+    get root_path
+    assert_template('static_pages/home')
+    assert_select "a[href=?]", users_path, count: 0
+  end
+
+  test "logged in users see users link" do
+    user = users(:michael)
+    log_in_as(user)
+    get root_path
+    assert_template('static_pages/home')
+    assert_select "a[href=?]", users_path, count: 1
+  end
+
   test "root navbar links" do
     get root_path
     verify_navbar_links('static_pages/home')

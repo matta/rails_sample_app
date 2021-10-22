@@ -7,7 +7,9 @@ class SessionsController < ApplicationController
     password = params[:session][:password]
     user = User.find_by(email: email)
     if user&.authenticate(password)
-      # Log the user in and redirect to the user's show page.
+      # Log the user in and redirect to the forwarding URL or the user's
+      # show page.
+      forwarding_url = session[:forwarding_url]
       reset_session
       if params[:session][:remember_me] == '1'
         remember user
@@ -15,7 +17,7 @@ class SessionsController < ApplicationController
         forget user
       end
       log_in user
-      redirect_to user
+      redirect_to forwarding_url || user
     else
       flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'

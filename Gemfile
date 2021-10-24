@@ -36,6 +36,9 @@ gem 'bcrypt', '~> 3.1.7'
 # it on our production site as well.
 gem 'faker', '~> 2.19'
 
+gem 'will_paginate', '~> 3.3'
+gem 'bootstrap-will_paginate', '~> 1.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

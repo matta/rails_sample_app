@@ -3,14 +3,18 @@
 
 <%= will_paginate %>
 
-<ul class="users">
+<!-- Here Rails infers that @users is a list of User objects; moreover,
+when called with a collection of users, Rails automatically iterates
+through them and renders each one with the _user.html.erb partial
+(inferring the name of the partial from the name of the class). The result
+is the impressively compact code in Listing 10.52.
 
-  <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %>
+This might be "impressively compact" but also opaque and magical and
+perhaps too clever, especially with the interaction with will_paginate?
+--matt -->
+
+<ul class="users">
+  <%= render @users %>
 </ul>
 
 <%= will_paginate %>

@@ -1,3 +1,4 @@
+# coding: utf-8
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -29,6 +30,11 @@ gem 'bootstrap-sass'
 
 # Use bcrypt
 gem 'bcrypt', '~> 3.1.7'
+
+# Ordinarily, you’d probably want to restrict the faker gem to a
+# development environment, but in the case of the sample app we’ll be using
+# it on our production site as well.
+gem 'faker', '~> 2.19'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

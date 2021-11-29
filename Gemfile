@@ -2,7 +2,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.2'
+ruby '3.0.3'
 
 # Address https://nvd.nist.gov/vuln/detail/CVE-2021-41098
 gem "nokogiri", "~> 1.12"

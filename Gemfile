@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.3'
 
 # Address https://nvd.nist.gov/vuln/detail/CVE-2021-41098
-gem "nokogiri", "~> 1.12"
+gem "nokogiri", "~> 1.13"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
